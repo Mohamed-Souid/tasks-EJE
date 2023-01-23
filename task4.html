@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task4</title>
+</head>
+<body>
+  <h1>Interface Corona</h1>
+  <input type="text" />
+  <button>ajouter</button>
+  <h4>Enregistrés</h4>
+  <ul class="enregistre">
+      
+  </ul>
+  <h4>Vaccinés</h4>
+  <ul class="vaccine">
+      
+  </ul>
+  <script>
+    let liste = document.querySelector("ul") ;
+
+    let button = document.querySelector("button") ;
+
+    let input = document.querySelector("input");
+
+    button.addEventListener("click", ajouterPersonne);
+
+    function ajouterPersonne () {
+      liste.innerHTML += `<li> ${input.value} <button onclick="vaccine(this)">vacciné</button></li>`;
+    }
+
+    function vaccine(e) {
+      let listeVaccine = document.querySelector(".vaccine") ;
+      listeVaccine.innerHTML += `<li> ${input.value} <button onclick="supprimer(this)">supprimer</button></li>`;
+      supprimer(e) ;
+    }
+
+
+    function supprimer(e) {
+      let ElementToDelete = e.parentElement
+      ElementToDelete.remove();
+    }
+
+  </script>
+</body>
+</html>
